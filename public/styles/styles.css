@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    --primary-color: #281800;
+    --secondary-color: #DFC7AC;
+}
+
+
+header {
+    background-color: var(--primary-color);
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+    color: var(--secondary-color);
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin: 0 auto;
+    }
+}
+section {
+    display: flex;
+    border-bottom: 20px solid brown;
+    width: max-content;
+}
+
+article {
+    rotate: 270deg;
+    width: 100%;
+}
+
+.genre-Thriller {
+    background-color: red;
+}
+
+.genre- {
+    background-color: green;
+    height: 100%;
+}
+
+/* .genre-Action {
+
+}
+
+.genre-Drama {
+
+}
+
+.genre-Comedy {
+
+} */
+
+footer {
+    background-color: var(--primary-color);
+    height: 4rem;
+}
