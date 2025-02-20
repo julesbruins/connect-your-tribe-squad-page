@@ -46,7 +46,7 @@ app.use(express.urlencoded({extended: true}))
 // Maak een GET route voor de index
 app.get('/', async function (request, response) {
   // Haal alle personen uit de WHOIS API op, van dit jaar
-  const personResponse = await fetch('https://fdnd.directus.app/items/person/?sort=name&fields=*,squads.squad_id.name,squads.squad_id.cohort&filter={"_and":[{"squads":{"squad_id":{"tribe":{"name":"FDND Jaar 1"}}}},{"squads":{"squad_id":{"cohort":"2425"}}}]}')
+  const personResponse = await fetch('https://fdnd.directus.app/items/person/?sort=name&fields=*,squads.squad_id.name,squads.squad_id.cohort&filter={"_and":[{"squads":{"squad_id":{"tribe":{"name":"FDND Jaar 1"}}}},{"squads":{"squad_id":{"name":"1G"}}},{"squads":{"squad_id":{"cohort":"2425"}}}]}')
 
   // En haal daarvan de JSON op
   const personResponseJSON = await personResponse.json()
@@ -56,7 +56,14 @@ app.get('/', async function (request, response) {
 
   // Render index.liquid uit de views map en geef de opgehaalde data mee als variabele, genaamd persons
   // Geef ook de eerder opgehaalde squad data mee aan de view
-  response.render('index.liquid', {persons: personResponseJSON.data, squads: squadResponseJSON.data})
+
+  let boekenPlank1 = personResponseJSON.data.slice(0, 9)
+
+  let boekenPlank2 = personResponseJSON.data.slice(9, 19)
+
+  let boekenPlank3 = personResponseJSON.data.slice(19)
+
+  response.render('index.liquid', {personsBoekenPlank1: boekenPlank1, personsBoekenPlank2: boekenPlank2, personsBoekenPlank3: boekenPlank3, squads: squadResponseJSON.data})
 })
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen

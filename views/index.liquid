@@ -4,15 +4,35 @@
 <button class="sort">Sort</button>
 
 <section>
-  {% for person in persons %}
+  {% for person in personsBoekenPlank1 %}
     
     <article class="genre-{{ person.fav_book_genre }}">
-      <a href="/student/{{ person.id }}">{{ person.name }}</a>
+      <a href="/student/{{ person.id }}">{{ person.name | split: ' ' | first }}</a>
     </article>
 
   {% endfor %}
-  </section>
+</section>
   
 
+<section>
+  {% for person in personsBoekenPlank2 %}
+    
+    <article class="genre-{{ person.fav_book_genre }}">
+      <a href="/student/{{ person.id }}">{{ person.name  | split: ' ' | first }}</a>
+    </article>
+
+  {% endfor %}
+</section>
+  
+
+<section>
+  {% for person in personsBoekenPlank3 %}
+    
+    <article class="genre-{{ person.fav_book_genre }}">
+      <a href="/student/{{ person.id }}">{{ person.name  | split: ' ' | first }}</a>
+    </article>
+
+  {% endfor %}
+</section>
 
 {% render 'partials/foot.liquid', squads: squads %}

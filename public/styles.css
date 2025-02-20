@@ -41,19 +41,28 @@ header {
 section {
     display: flex;
     border-bottom: 20px solid rgb(90, 72, 39);
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: end;
 }
 
 article {
-    /* rotate: 270deg;
-    width: 100%; */
+    width: 20px;
+    padding: 20px;
+    word-break:break-all;
     font-family: var(--secondary-font);
+    display: flex;
+    justify-content: center;
 
     a {
         color: black;
         text-decoration: none;
     }
 }
+
+/* article:nth-of-type(2n) {
+    width: 20px;
+} */
+
 
 .genre-Thriller {
     background-color: red;
